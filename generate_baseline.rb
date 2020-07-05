@@ -16,15 +16,14 @@ def chooseSound(key, diatonic)
 end
 
 
-keyC	= ['C', 'Dm', 'Em', 'F', 'G', 'Am', 'Bm(b5)']
-#keyD	[D	Em	F♯m	G	A	Bm	C♯m(♭5)]
-#keyE	[E	F♯m	G♯m	A	B	C♯m	D♯m(♭5)]
-#keyF	[F	Gm	Am	B♭	C	Dm	Em(♭5)]
-#keyG	[G	Am	Bm	C	D	Em	F♯m(♭5)]
-#keyA	[A	Bm	C♯m	D	E	F♯m	G♯m(♭5)]
-#keyB	[B	C♯m	D♯m	E	F♯	G♯m	A♯m(♭5)]
-keys = [keyC]
-  #, keyD, keyE, keyF, keyG, keyA, keyB]
+keyC = ['C',  'Dm',   'Em',   'F',  'G',  'Am',   'Bm(b5)']
+keyD = ['D',  'Em',   'F#m',  'G',  'A',  'Bm',   'C#m(b5)']
+keyE = ['E',  'F#m',  'G#m',  'A',  'B',  'C#m',  'D#m(b5)']
+keyF = ['F',  'Gm',   'Am',   'Bb', 'C',  'Dm',   'Em(b5)']
+keyG = ['G',  'Am',   'Bm',   'C',  'D',  'Em',   'F#m(b5)']
+keyA = ['A',  'Bm',   'C#m',  'D',  'E',  'F#m',  'G#m(b5)']
+keyB = ['B',  'C#m',  'D#m',  'E',  'F#', 'G#m',  'A#m(b5)']
+keys = [keyC, keyD, keyE, keyF, keyG, keyA, keyB]
 
 
 tonic = [0,2,5]
@@ -34,19 +33,23 @@ diatonic = [tonic, sub, dominant]
 
 $list = []
 baseline = []
+
+puts "キーを選択", "0.C", "1.D", "2.E", "3.F", "4.G", "5.A", "6.B"
+key = keys[gets.to_i]
+
 # 最初の音を決める
 $list << tonic
-baseline << keyC[tonic[rand(0..tonic.length - 1)]]
+baseline << key[tonic[rand(0..tonic.length - 1)]]
 # 前の音がトニックかサブドミナントだったら
 while baseline.length < 3
   if $list.last.include?(0) or $list.last.include?(1)
     # 次の音はなんでも良い
-    baseline <<  chooseSound(keyC, diatonic[rand(0..2)])
+    baseline <<  chooseSound(key, diatonic[rand(0..2)])
   # 前の音がドミナントだったら
   elsif $list.last.include?(4)
-    baseline <<  chooseSound(keyC, tonic)
+    baseline <<  chooseSound(key, tonic)
   end
 end
 $list << tonic
-baseline << keyC[tonic[rand(0..tonic.length - 1)]]
+baseline << key[tonic[rand(0..tonic.length - 1)]]
 p baseline
