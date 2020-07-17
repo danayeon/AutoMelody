@@ -6,6 +6,7 @@ def lenArrng(index, num)
   if index > $scales.length - 1
     index -= $scales.length
   end
+  return index
 end
 
 def major(key)
@@ -23,17 +24,17 @@ def minor(key)
 end
 
 def majorb5(key)
-  keyindex = $scales.index(key)
+  keyIndex = $scales.index(key)
   keyIndex2 = lenArrng(keyIndex, 4)
   keyIndex3 = lenArrng(keyIndex, 6)
-  return $scales[keyindex], $scales[kayindex2], $scales[keyindex3]
+  return $scales[keyIndex], $scales[keyIndex2], $scales[keyIndex3]
 end
 
 def minorb5(key)
-  keyindex = $scales.index(key)
+  keyIndex = $scales.index(key)
   keyIndex2 = lenArrng(keyIndex, 3)
   keyIndex3 = lenArrng(keyIndex, 6)
-  return $scales[keyindex], $scales[kayindex2], $scales[keyindex3]
+  return $scales[keyIndex], $scales[keyIndex2], $scales[keyIndex3]
 end
 
 
