@@ -12,6 +12,16 @@ def minor(key)
   return $scales[keyIndex], $scales[keyIndex + 3], $scales[keyIndex + 7]
 end
 
+def majorb5(key)
+  keyindex = $scales.index(key)
+  return $scales[keyindex], $scales[kayindex + 4], $scales[keyindex + 6]
+end
+
+def minorb5(key)
+  keyindex = $scales.index(key)
+  return $scales[keyindex], $scales[kayindex + 3], $scales[keyindex + 6]
+end
+
 
 # 各キーに対するコード
 c = ['C', 'E', 'G']
