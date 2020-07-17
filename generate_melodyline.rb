@@ -43,8 +43,22 @@ class Key
     return $scales[keyIndex], $scales[keyIndex2], $scales[keyIndex3]
   end
 end
-
+arry = []
+baseline.each do |l|
+  #p l
+  if l[1] == '#'
+  #  puts '#だよ'
+    key = l[0..1]
+  #  puts '入れた'
+  else
+  #  puts '#じゃない'
+    key = l[0]
+  #  puts '入れた'
+  end
+  #puts 'クラス'
+  arry << Key.new(key)
+  #puts 'クラス'
+end
+p arry
 # 音符を決める 同時に音階も決める
-notes = [*1..16]
-hihi = Key.new(gets.chomp)
-p hihi.major
+#notes = [*1..16]
