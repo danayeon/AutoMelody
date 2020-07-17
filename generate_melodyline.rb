@@ -1,10 +1,18 @@
 # 仮でベースラインを決定する
 baseline = ["A", "G#m(b5)", "A", "F#m"]
 $scales =['C','C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']
+def lenArrng(index, num)
+  index += num
+  if index > $scales.length - 1
+    index -= $scales.length
+  end
+end
 
 def major(key)
   keyIndex = $scales.index(key)
-  return $scales[keyIndex], $scales[keyIndex + 4], $scales[keyIndex + 7]
+  keyIndex2 = lenArrng(keyIndex, 4)
+  keyIndex3 = lenArrng(keyIndex, 7)
+  return $scales[keyIndex], $scales[keyIndex2], $scales[keyIndex3]
 end
 
 def minor(key)
