@@ -17,17 +17,23 @@ end
 
 def minor(key)
   keyIndex = $scales.index(key)
-  return $scales[keyIndex], $scales[keyIndex + 3], $scales[keyIndex + 7]
+  keyIndex2 = lenArrng(keyIndex, 3)
+  keyIndex3 = lenArrng(keyIndex, 7)
+  return $scales[keyIndex], $scales[keyIndex2], $scales[keyIndex3]
 end
 
 def majorb5(key)
   keyindex = $scales.index(key)
-  return $scales[keyindex], $scales[kayindex + 4], $scales[keyindex + 6]
+  keyIndex2 = lenArrng(keyIndex, 4)
+  keyIndex3 = lenArrng(keyIndex, 6)
+  return $scales[keyindex], $scales[kayindex2], $scales[keyindex3]
 end
 
 def minorb5(key)
   keyindex = $scales.index(key)
-  return $scales[keyindex], $scales[kayindex + 3], $scales[keyindex + 6]
+  keyIndex2 = lenArrng(keyIndex, 3)
+  keyIndex3 = lenArrng(keyIndex, 6)
+  return $scales[keyindex], $scales[kayindex2], $scales[keyindex3]
 end
 
 
@@ -77,5 +83,8 @@ bm = ['B', 'D', 'F#']
 
 # 音符を決める 同時に音階も決める
 notes = [*1..16]
-p major(gets.chomp)
-p minor(gets.chomp)
+aa = gets.chomp
+p major(aa)
+p minor(aa)
+p majorb5(aa)
+p minorb5(aa)
