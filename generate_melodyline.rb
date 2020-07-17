@@ -1,5 +1,18 @@
 # 仮でベースラインを決定する
 baseline = ["A", "G#m(b5)", "A", "F#m"]
+$scales =['C','C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']
+
+def major(key)
+  keyIndex = $scales.index(key)
+  return $scales[keyIndex], $scales[keyIndex + 4], $scales[keyIndex + 7]
+end
+
+def minor(key)
+  keyIndex = $scales.index(key)
+  return $scales[keyIndex], $scales[keyIndex + 3], $scales[keyIndex + 7]
+end
+
+
 # 各キーに対するコード
 c = ['C', 'E', 'G']
 cb5 = ['C', 'E', 'Gb']
@@ -43,3 +56,8 @@ asharpm = ['A#', 'Db', 'F']
 b = ['B', 'D#', 'F#']
 bb5 = ['B', 'D#', 'F']
 bm = ['B', 'D', 'F#']
+
+# 音符を決める 同時に音階も決める
+notes = [*1..16]
+p major(gets.chomp)
+p minor(gets.chomp)
