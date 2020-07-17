@@ -53,3 +53,4 @@ end
 $list << tonic
 baseline << key[tonic[rand(0..tonic.length - 1)]]
 p baseline
+p baseline.map{|l| key.index(l) + 1}
